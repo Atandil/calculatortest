@@ -3,6 +3,7 @@
 /.env.local.php
 /.env.*.local
 /public/bundles/
+*.lock
 ###< symfony/framework-bundle ###
 
 # Cache, session files and logs
