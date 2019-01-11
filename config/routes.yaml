@@ -1,3 +1,12 @@
 index:
     path: /
     controller: App\Controller\DefaultController::index
+
+calc:
+    path: /calc
+    controller: App\Controller\CalcController::index
+
+
+calc_op:
+    path: /calc/{slug}
+    controller: App\Controller\CalcController::operations

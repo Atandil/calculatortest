@@ -1,10 +1,57 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+
+   <!-- <link href="assets/css/calc.css" rel="stylesheet" />-->
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+          $(document).ready(function () {
+            
+         $('#calc_num1').keyup(function() {
+          $(this).val($(this).val().replace(/[^0-9]/, ''));
+            });
+         
+         $('#calc_num2').keyup(function() {
+          $(this).val($(this).val().replace(/[^0-9]/, ''));
+            });
+    
+    $("button").on("click", function(e){
+        
+         e.preventDefault();
+         
+        //get the action-url of the form
+        var actionurl =  'calc';
+        var mid=(this).id;
+              
+        var oper = mid.replace('calc_','');
+
+                
+         $.post(actionurl+'/' + oper,
+            $('form').serialize(),
+            function(data,status){
+                //alert("Data: " + data + "\nStatus: " + status);
+                $('#result').html(data);
+            }
+        );
+
+    });
+    
+
+    });
+
+    </script>
+{% endblock %}
+
 {% block body %}
     
     <h1>Simple Calculator</h1>
     
- {{ form_start(form) }}
+ {{ form_start(form, {'action': 'calc'}) }}
  
 <div>
     {{ form_label(form.num1) }}
@@ -23,5 +70,7 @@
  {{ form_widget(form.plus) }} {{ form_widget(form.minus) }} {{ form_widget(form.mult) }} {{ form_widget(form.div) }} {{ form_widget(form.opand) }} {{ form_widget(form.opor) }}
 </div>
 {{ form_end(form) }}
+
+<div id="result"></div>
 
 {% endblock %}
