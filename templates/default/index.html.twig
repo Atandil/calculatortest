@@ -1,5 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ greeting }}
+    
+    <h1>Simple Calculator</h1>
+    
+ {{ form_start(form) }}
+ 
+<div>
+    {{ form_label(form.num1) }}
+    {{ form_errors(form.num1) }}
+    {{ form_widget(form.num1) }}
+    {{ form_help(form.num1) }}
+</div>
+<div>
+    {{ form_label(form.num2) }}
+    {{ form_errors(form.num2) }}
+    {{ form_widget(form.num2) }}
+    {{ form_help(form.num2) }}
+</div>
+
+<div class="submit">
+ {{ form_widget(form.plus) }} {{ form_widget(form.minus) }} {{ form_widget(form.mult) }} {{ form_widget(form.div) }} {{ form_widget(form.opand) }} {{ form_widget(form.opor) }}
+</div>
+{{ form_end(form) }}
+
 {% endblock %}
