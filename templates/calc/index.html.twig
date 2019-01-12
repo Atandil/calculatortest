@@ -1,7 +1,9 @@
 {# iside reults #}
 <h2>Your result</h2>
 
-<table>
-    <tr><td>Binary</td><td></td></tr>
-    <tr><td>Decimal</td><td></td></tr>
+<b style="color:red">{{ result.error|default('') }}</b>
+
+<table style="border: #000 solid 1px;margin-top: 10px">
+    <tr ><td>Binary</td><td>{{ result.binary|default('-') }}</td></tr>
+    <tr><td>Decimal</td><td>{{ result.decimal|default('-') }}</td></tr>
 </table>

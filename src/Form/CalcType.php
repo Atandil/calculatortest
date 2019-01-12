@@ -16,12 +16,12 @@ class CalcType extends AbstractType {
         $builder
             ->add('num1', NumberType::class)
             ->add('num2', NumberType::class)
-            ->add('plus', SubmitType::class, array('label' => '+'))
-            ->add('minus', SubmitType::class, array('label' => '-'))
-            ->add('mult', SubmitType::class, array('label' => '*'))
-            ->add('div', SubmitType::class, array('label' => '/'))
-            ->add('opand', SubmitType::class, array('label' => 'AND'))
-            ->add('opor', SubmitType::class, array('label' => 'OR'))
+            ->add('Plus', SubmitType::class, array('label' => '+'))
+            ->add('Minus', SubmitType::class, array('label' => '-'))
+            ->add('Multiple', SubmitType::class, array('label' => '*'))
+            ->add('Divide', SubmitType::class, array('label' => '/'))
+            ->add('BinAnd', SubmitType::class, array('label' => 'AND'))
+            ->add('BinOr', SubmitType::class, array('label' => 'OR'))
                 
         ;
     }
