@@ -10,6 +10,10 @@ class Divide implements OperatorInterface {
             throw new \Exception('Please use numbers');
        }
        
+       if($n2==0) {
+            throw new \Exception('Do NOT divide by ZERO');
+       }
+       
        return  $n1/$n2;
     }
     
